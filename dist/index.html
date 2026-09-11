@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Спокойное знакомство с возможностями независимого партнёрства с LR Health & Beauty.">
-    <title>Возможности с LR — знакомство с партнёрством</title>
+    <title>LR — ваше дело начинается здесь</title>
     <style>
       :root {
         --ink: #0d1b2a;
@@ -104,13 +104,15 @@
         .hero-media { background: url("assets/hero-business.png") center / cover no-repeat; }
       }
     </style>
+    <link rel="stylesheet" href="assets/editorial.css">
+    <script src="assets/hero.js" defer></script>
   </head>
   <body>
     <header class="top">
       <div class="wrap nav">
-        <a class="brand" href="#top"><span class="brand-mark">LR</span><span>Возможности</span></a>
+        <a class="brand" href="#top"><span class="brand-mark">LR</span><span>Health &amp; Beauty<br><small>Независимое партнёрство</small></span></a>
         <nav class="nav-links" aria-label="Основная навигация">
-          <a href="#format">Формат</a><a href="#start">Старт</a><a href="#principles">Принципы</a>
+          <a href="#format">Возможности</a><a href="#principles">О партнёрстве</a><a class="nav-start" href="#start">С чего начать ↗</a>
         </nav>
       </div>
     </header>
@@ -119,39 +121,36 @@
       <section class="hero">
         <div class="wrap hero-grid">
           <div class="hero-media" aria-hidden="true">
-            <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-business.png">
-              <source src="assets/hero-background.mp4" type="video/mp4">
-            </video>
+            <video id="hero-video" class="hero-video" muted loop playsinline preload="none" poster="assets/hero-poster.jpg" data-src="assets/hero-background.mp4"></video>
           </div>
           <div class="hero-scrim" aria-hidden="true"></div>
           <div class="hero-copy">
-            <p class="eyebrow">Независимое партнёрство</p>
-            <h1>Стройте своё дело в своём ритме</h1>
-            <p class="lead">Знакомство с возможностями LR Health &amp; Beauty: продукция, поддержка и понятный путь первых шагов.</p>
-            <a class="button" href="#start">Посмотреть путь старта</a>
-            <p class="disclaimer">Партнёрство — это самостоятельная деятельность. Результат и вознаграждение зависят от личных продаж и выполнения условий актуального плана.</p>
+            <p class="eyebrow">Продукт. Люди. Возможности.</p>
+            <h1>Ваше дело.<br><span>Ваш ритм.</span></h1>
+            <div class="hero-bottom"><p class="lead">Откройте для себя партнёрство с LR Health &amp; Beauty.</p><a class="button" href="#start">Узнать, с чего начать</a></div>
           </div>
+          <button class="video-toggle" type="button" aria-controls="hero-video" hidden>Включить видео</button>
         </div>
       </section>
 
       <section id="format">
         <div class="wrap">
-          <span class="section-kicker">Формат работы</span>
-          <h2>Не «быстрый успех», а системная работа с людьми и продуктом</h2>
-          <p class="intro">Здесь можно начать с изучения ассортимента и строить деятельность в удобном темпе — онлайн, офлайн или сочетая оба формата.</p>
+          <span class="section-kicker">01 / Возможности</span>
+          <h2>В основе бизнеса —<br>живой интерес.</h2>
+          <p class="intro">К продуктам, которыми хочется пользоваться. К людям, с которыми приятно работать. К делу, которое вы развиваете сами.</p>
           <div class="pillars">
-            <article class="pillar"><span class="number">01</span><h3>Продукт прежде всего</h3><p>Разбираемся в категориях, назначении и официальных материалах, прежде чем рекомендовать продукт.</p></article>
-            <article class="pillar"><span class="number">02</span><h3>Поддержка на старте</h3><p>Планируем первые действия, вопросы клиентов и знакомство с личным кабинетом без перегруза.</p></article>
-            <article class="pillar"><span class="number">03</span><h3>Гибкий формат</h3><p>Вы сами организуете время, коммуникацию и объём работы в рамках правил компании и законодательства.</p></article>
+            <article class="pillar"><span class="number">HEALTH &amp; BEAUTY</span><h3>Начните с продукта</h3><p>Познакомьтесь с ассортиментом, изучите назначение и инструкции. Личный опыт помогает вести содержательный разговор с клиентом.</p></article>
+            <article class="pillar"><span class="number">PEOPLE</span><h3>Будьте в диалоге</h3><p>Выясняйте потребности, отвечайте на вопросы, помогайте разобраться в выборе. Отношения начинаются с внимания.</p></article>
+            <article class="pillar"><span class="number">YOUR WAY</span><h3>Найдите свой формат</h3><p>Онлайн, личные встречи или их сочетание. Вы сами планируете время и определяете объём работы.</p></article>
           </div>
         </div>
       </section>
 
       <section class="path" id="start">
         <div class="wrap">
-          <span class="section-kicker">Путь старта</span>
-          <h2>Четыре спокойных шага до первых действий</h2>
-          <p class="intro">Последовательность нужна не для давления, а чтобы принять взвешенное решение и не пропустить важные условия.</p>
+          <span class="section-kicker">02 / Ваш старт</span>
+          <h2>Большие планы.<br>Понятный первый шаг.</h2>
+          <p class="intro">Начните со знакомства. Разберитесь в условиях. Выберите темп, который подходит вам.</p>
           <div class="steps">
             <article class="step"><span class="step-index">ШАГ 01</span><h3>Знакомство</h3><p>Определяем цели, интерес к категориям и реалистичный объём времени на старт.</p></article>
             <article class="step"><span class="step-index">ШАГ 02</span><h3>Продукт и правила</h3><p>Изучаем официальный каталог, условия заказа, доставки и правила коммуникации.</p></article>
@@ -164,20 +163,20 @@
       <section id="principles">
         <div class="wrap income">
           <div>
-            <span class="section-kicker">Прозрачная коммуникация</span>
-            <h2>О возможностях дохода — только честно</h2>
-            <p class="intro">На сайте и в личных разговорах корректно говорить о механике: разнице в ценах и бонусах при выполнении условий плана. Нельзя обещать фиксированный, гарантированный или пассивный доход.</p>
-            <details><summary>Что важно сообщать будущему партнёру</summary><p>Актуальный план, условия и статусы следует сверять по официальным материалам для российского рынка до любых расчётов или публичных заявлений.</p></details>
-            <details><summary>Как говорить о продукции безопасно</summary><p>Используйте назначение и инструкции из официальной карточки. Не заменяйте продуктом лечение, не обещайте медицинский результат и учитывайте индивидуальные ограничения.</p></details>
+            <span class="section-kicker">03 / По существу</span>
+            <h2>Сначала ясность.<br>Потом решение.</h2>
+            <p class="intro">Партнёрство — самостоятельная деятельность. Доход зависит от продаж, расходов и выполнения условий актуального плана; гарантированного заработка нет.</p>
+            <details><summary>Как разобраться в карьерном плане?</summary><p>Запросите у пригласившего вас партнёра полную актуальную редакцию для российского рынка. Обсудите условия квалификаций, бонусов и связанные с деятельностью расходы до регистрации.</p></details>
+            <details><summary>С чего начать знакомство с продуктами?</summary><p>С официального каталога и инструкций к интересующим продуктам. Учитывайте индивидуальные ограничения: косметика и БАД не заменяют лечение.</p></details>
           </div>
-          <aside class="income-note"><strong>Здоровая основа партнёрства</strong><p>Никто не обязан принимать решение сразу. Вопросы о правилах, возвратах, стоимости и реальных действиях на старте — нормальная часть знакомства.</p></aside>
+          <aside class="income-note"><span class="section-kicker">Ваше решение</span><strong>Хороший старт —<br>с ваших вопросов.</strong><p>О продукте, затратах, заказах и ежедневной работе. Обсудите всё, что важно вам, с пригласившим партнёром.</p></aside>
         </div>
       </section>
 
       <section class="final">
         <div class="wrap final-card">
-          <div><span class="section-kicker">Следующий шаг</span><h2>Начните со знакомства, а не с обещаний</h2></div>
-          <div><p>Посмотрите путь старта, соберите вопросы и обсудите их с партнёром, который пригласил вас в LR.</p><a class="button button-light" href="#start">Вернуться к пути старта</a></div>
+          <div><span class="section-kicker">Возможности с LR</span><h2>Давайте<br>знакомиться.</h2></div>
+          <div><p>Ваш следующий шаг — разговор с пригласившим партнёром. А пока узнайте, как устроено начало работы.</p><a class="button button-light" href="#start">Мой первый шаг</a></div>
         </div>
       </section>
     </main>
