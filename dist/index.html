@@ -30,17 +30,19 @@
       .nav-links a { text-decoration: none; }
       .nav-links a:hover { color: var(--green); }
       .hero { padding: 36px 0 82px; background: linear-gradient(135deg, #e4eee9 0%, #f7f8f6 54%, #f8ecd8 100%); }
-      .hero-grid { min-height: 550px; display: grid; grid-template-columns: 1.03fr .97fr; align-items: stretch; overflow: hidden; border-radius: 28px; background: var(--white); box-shadow: var(--shadow); }
-      .hero-copy { padding: clamp(38px, 6vw, 76px); display: flex; flex-direction: column; justify-content: center; }
-      .eyebrow { margin: 0 0 18px; color: var(--green); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+      .hero-grid { position: relative; min-height: 550px; display: flex; align-items: stretch; overflow: hidden; border-radius: 28px; background: var(--ink); box-shadow: var(--shadow); isolation: isolate; }
+      .hero-media, .hero-scrim { position: absolute; inset: 0; }
+      .hero-media { z-index: -2; background: #152625; }
+      .hero-video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+      .hero-scrim { z-index: -1; background: linear-gradient(90deg, rgba(5, 21, 29, .86) 0%, rgba(8, 27, 34, .7) 48%, rgba(8, 27, 34, .18) 100%); }
+      .hero-copy { max-width: 690px; padding: clamp(38px, 6vw, 76px); display: flex; flex-direction: column; justify-content: center; color: white; }
+      .eyebrow { margin: 0 0 18px; color: var(--lime); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
       h1 { max-width: 590px; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.7rem, 5vw, 5.35rem); line-height: .98; letter-spacing: -.05em; font-weight: 500; }
-      .lead { max-width: 520px; margin: 25px 0 30px; color: var(--ink-soft); font-size: clamp(1rem, 1.4vw, 1.14rem); }
+      .lead { max-width: 520px; margin: 25px 0 30px; color: #e1ebe8; font-size: clamp(1rem, 1.4vw, 1.14rem); }
       .button { display: inline-flex; width: fit-content; align-items: center; gap: 10px; padding: 13px 19px; border-radius: 100px; background: var(--green); color: white; font-weight: 750; text-decoration: none; transition: transform .2s ease, background .2s ease; }
       .button:hover { transform: translateY(-2px); background: #0f5644; }
       .button::after { content: "→"; font-size: 1.15rem; }
-      .disclaimer { margin: 26px 0 0; color: #63716f; font-size: .79rem; max-width: 490px; }
-      .hero-image { min-height: 330px; background: #c6d4cc; }
-      .hero-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 58% 50%; }
+      .disclaimer { margin: 26px 0 0; color: #bfd1ca; font-size: .79rem; max-width: 490px; }
       section { padding: 86px 0; }
       .section-kicker { color: var(--green); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
       h2 { max-width: 740px; margin: 12px 0 14px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.1rem, 4vw, 3.65rem); line-height: 1.04; letter-spacing: -.04em; font-weight: 500; }
@@ -81,8 +83,9 @@
       @media (max-width: 800px) {
         .nav-links { display: none; }
         .hero { padding: 18px 0 54px; }
-        .hero-grid, .income, .final-card { grid-template-columns: 1fr; }
-        .hero-image { min-height: 360px; grid-row: 1; }
+        .income, .final-card { grid-template-columns: 1fr; }
+        .hero-grid { min-height: 560px; }
+        .hero-scrim { background: linear-gradient(90deg, rgba(5, 21, 29, .84), rgba(5, 21, 29, .5)); }
         .pillars { grid-template-columns: 1fr; }
         .steps { grid-template-columns: 1fr 1fr; }
         .step:nth-child(2) { border-right: 0; }
@@ -95,6 +98,10 @@
         .step, .step:not(:first-child) { border-right: 0; border-top: 1px solid rgba(255,255,255,.24); padding: 22px 0; min-height: auto; }
         .step:first-child { border-top: 0; }
         .hero-copy { padding: 34px 27px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-video { display: none; }
+        .hero-media { background: url("assets/hero-business.png") center / cover no-repeat; }
       }
     </style>
   </head>
@@ -111,6 +118,12 @@
     <main id="top">
       <section class="hero">
         <div class="wrap hero-grid">
+          <div class="hero-media" aria-hidden="true">
+            <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-business.png">
+              <source src="assets/hero-background.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="hero-scrim" aria-hidden="true"></div>
           <div class="hero-copy">
             <p class="eyebrow">Независимое партнёрство</p>
             <h1>Стройте своё дело в своём ритме</h1>
@@ -118,7 +131,6 @@
             <a class="button" href="#start">Посмотреть путь старта</a>
             <p class="disclaimer">Партнёрство — это самостоятельная деятельность. Результат и вознаграждение зависят от личных продаж и выполнения условий актуального плана.</p>
           </div>
-          <div class="hero-image"><img src="assets/hero-business.png" alt="Предпринимательница знакомится с уходовой продукцией в светлом домашнем офисе"></div>
         </div>
       </section>
 
