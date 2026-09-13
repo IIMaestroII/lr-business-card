@@ -1,31 +1,18 @@
 const video = document.querySelector('.hero-video');
-const toggle = document.querySelector('.video-toggle');
 const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const connection = navigator.connection;
-let manuallyPaused = false;
-
-function updateLabel() {
-  toggle.textContent = video.paused ? 'Включить видео' : 'Пауза видео';
-}
 async function startVideo() {
   if (!video.getAttribute('src')) video.src = video.dataset.src;
   video.muted = true;
-  try { await video.play(); } catch { updateLabel(); }
+  try { await video.play(); } catch { /* Keep the poster if autoplay is unavailable. */ }
 }
-toggle.hidden = false;
-toggle.addEventListener('click', () => {
-  manuallyPaused = !video.paused;
-  if (video.paused) startVideo(); else video.pause();
-});
-video.addEventListener('play', updateLabel);
-video.addEventListener('pause', updateLabel);
-video.addEventListener('error', () => {
-  toggle.textContent = 'Видео недоступно';
-  toggle.disabled = true;
-});
-motion.addEventListener('change', () => { if (motion.matches) video.pause(); });
+function syncPlayback() {
+  if (document.hidden || motion.matches || connection?.saveData) video.pause();
+  else startVideo();
+}
+motion.addEventListener('change', syncPlayback);
+connection?.addEventListener('change', syncPlayback);
 document.addEventListener('visibilitychange', () => {
-  if (document.hidden) video.pause();
-  else if (!manuallyPaused && !motion.matches && !connection?.saveData) startVideo();
+  syncPlayback();
 });
-if (!motion.matches && !connection?.saveData) startVideo();
+syncPlayback();
